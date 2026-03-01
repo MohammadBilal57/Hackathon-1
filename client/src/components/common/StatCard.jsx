@@ -1,4 +1,3 @@
-import { LucideIcon } from "lucide-react";
 import { cn } from "../../utils/cn";
 
 export default function StatCard({ title, value, icon: Icon, color = "blue", subtitle }) {

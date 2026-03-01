@@ -4,7 +4,8 @@ import api from "../../services/api";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, AreaChart, Area } from "recharts";
 import StatCard from "../../components/common/StatCard";
 import LoadingSpinner from "../../components/common/LoadingSpinner";
-import { Calendar, FileText, Users, AlertTriangle, ArrowRight, Activity, Brain } from "lucide-react";
+import { Calendar, FileText, Users, AlertTriangle, ArrowRight, Activity, Brain, Zap } from "lucide-react";
+import { cn } from "../../utils/cn";
 import { format } from "date-fns";
 
 const STATUS_CHIPS = {

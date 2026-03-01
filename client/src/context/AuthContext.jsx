@@ -11,7 +11,7 @@ export const AuthProvider = ({ children }) => {
     const token = localStorage.getItem("accessToken");
     if (token) {
       api.get("/auth/me")
-        .then(({ data }) => setUser(data))
+        .then(({ data }) => setUser(data.user))
         .catch(() => localStorage.clear())
         .finally(() => setLoading(false));
     } else {
@@ -27,6 +27,11 @@ export const AuthProvider = ({ children }) => {
     return data.user;
   };
 
+  const register = async (formData) => {
+    const { data } = await api.post("/auth/register", formData);
+    return data.user;
+  };
+
   const logout = () => {
     localStorage.clear();
     setUser(null);
@@ -35,7 +40,7 @@ export const AuthProvider = ({ children }) => {
   const updateUser = (updated) => setUser((prev) => ({ ...prev, ...updated }));
 
   return (
-    <AuthContext.Provider value={{ user, loading, login, logout, updateUser }}>
+    <AuthContext.Provider value={{ user, loading, login, register, logout, updateUser }}>
       {children}
     </AuthContext.Provider>
   );

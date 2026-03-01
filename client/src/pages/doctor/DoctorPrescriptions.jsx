@@ -7,6 +7,7 @@ import autoTable from "jspdf-autotable";
 import { useAuth } from "../../context/AuthContext";
 import { format } from "date-fns";
 import { cn } from "../../utils/cn";
+import LoadingSpinner from "../../components/common/LoadingSpinner";
 
 const generatePDF = (prescription, user) => {
   const doc = new jsPDF();
